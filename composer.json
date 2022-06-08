@@ -57,3 +57,17 @@
         }
     }
 }
+"prefer-stable": true,
+"minimum-stability": "dev",
+"require": {
+    "aimeos/aimeos-laravel": "~2022.04",
+    ...
+},
+"scripts": {
+    "post-update-cmd": [
+        "@php artisan migrate",
+        "@php artisan vendor:publish --tag=public --force",
+        "\\Aimeos\\Shop\\Composer::join"
+    ],
+    ...
+}
